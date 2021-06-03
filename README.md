@@ -30,13 +30,16 @@ Please test it before using in production!
 
 `tutor plugins list `
 
-`tutor plugins enable custom_reg_form_plugin `
+`tutor plugins enable custom_form_plugin `
 
 `tutor config save `
 
 `tutor images build openedx  `
 
 `tutor local quickstart `
+
+If all done right you should see the migrations after ` tutor local quickstart `
+
 
 ### Debug and development:
 
@@ -47,7 +50,7 @@ Please test it before using in production!
 `./manage.py lms migrate `
 
 To delete and recreate migrations:
-(This step is important if you changed models !)
+
 
 `./manage.py lms migrate custom_reg_form zero `
 

@@ -1,5 +1,5 @@
 ---
-name: custom_reg_form_plugin
+name: custom_form_plugin
 version: 0.1.0
 patches:
     lms-env: |
