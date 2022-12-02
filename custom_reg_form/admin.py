@@ -29,5 +29,5 @@ class ExtraInfoAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(ExtraInfo, ExtraInfoAdmin)
+admin.site.register(ExtraInfo)
      
