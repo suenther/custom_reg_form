@@ -9,36 +9,35 @@ Please test it before using in production!
 
 ### app installation:
 
-`cd .local/share/tutor/env/build/openedx/requirements   `
+```bash
+cd .local/share/tutor/env/build/openedx/requirements   
 
-`git clone  https://github.com/murat-polat/custom-form-app `
+git clone  https://github.com/murat-polat/custom-form-app 
 
-`echo "-e ./custom-form-app" >>  private.txt `
+echo "-e ./custom_reg_form" >>  private.txt 
 
-`pip3 install -e custom-form-app `
+pip install -e custom_reg_form
+```
 
+### plugin activation
 
-### plugin activation:
+```bash
+tutor plugins printroot # ~/.local/share/tutor-plugins
 
-`tutor plugins printroot  `
+mkdir "$(tutor plugins printroot)"
 
-`mkdir "$(tutor plugins printroot)" `
+cp custom_reg_form/custom_form_plugin.yml $(tutor plugins printroot)
 
-`cd "$(tutor plugins printroot)" `
+tutor plugins list
 
-`nano custom_form_plugin.yml ` Then copy all cods from custom_form_plugin.yml and save
+tutor plugins enable custom_reg_form_plugin
+tutor config save
+tutor images build openedx
 
-`tutor plugins list `
+tutor local start
+```
 
-`tutor plugins enable custom_form_plugin `
-
-`tutor config save `
-
-`tutor images build openedx  `
-
-`tutor local quickstart `
-
-If all done right you should see the migrations after ` tutor local quickstart `
+If all done right you should see the migrations after `tutor local start`
 
 
 ### Debug and development:
