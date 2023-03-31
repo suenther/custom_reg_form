@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ExtraInfo',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('consent', ExtraInfo.consent),
                 ('study_programme', ExtraInfo.study_programme),
                 ('enhanced_gender', ExtraInfo.enhanced_gender),
@@ -106,9 +106,7 @@ class Migration(migrations.Migration):
                 ('scale_anxiety4', ExtraInfo.scale_anxiety4),
                 ('scale_anxiety5', ExtraInfo.scale_anxiety5),
 
-                ('user',
-                 models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user+',
-                                      to=settings.AUTH_USER_MODEL)),
+                ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
