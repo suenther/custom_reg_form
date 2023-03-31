@@ -1,10 +1,6 @@
 from django.conf import settings
 from django.db import models
 
-# Backwards compatible settings.AUTH_USER_MODEL
-USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
-
-
 class ExtraInfo(models.Model):
     """
     This model contains two extra fields that will be saved when a user registers.
@@ -116,8 +112,6 @@ class ExtraInfo(models.Model):
         ("UR", "Urdu"),
         ("Other", "Other")
     )
-
-    user = models.OneToOneField(USER_MODEL, null=True, related_name='user+', on_delete=models.CASCADE)
 
     consent = models.BooleanField(
         verbose_name="I agree that data of my learning behavior may be used to improve the EESYS courses.",
