@@ -105,8 +105,6 @@ class Migration(migrations.Migration):
                 ('scale_anxiety3', ExtraInfo.scale_anxiety3),
                 ('scale_anxiety4', ExtraInfo.scale_anxiety4),
                 ('scale_anxiety5', ExtraInfo.scale_anxiety5),
-
-                ('user', models.OneToOneField(null=True, on_delete=models.SET_NULL, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
