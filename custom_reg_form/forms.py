@@ -1,5 +1,8 @@
 from .models import ExtraInfo
 from django.forms import ModelForm
+from django import forms
+from django.utils.translation import gettext_lazy as _
+import logging
 
 
 class ExtraInfoForm(ModelForm):
@@ -10,9 +13,8 @@ class ExtraInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
 
-        self.fields["consent"].required = True
+        self.fields["consent"].required = False
         self.fields["consent"].initial = 1
-        self.fields["consent"].blank = True
 
         self.fields["study_programme"].required = True
         self.fields["study_programme"].error_messages = {
@@ -37,7 +39,7 @@ class ExtraInfoForm(ModelForm):
             "invalid": u"The entered semester of study is not valid.",
         }
 
-        self.fields["part_time_student"].required = True
+        self.fields["part_time_student"].required = False
         self.fields["part_time_student"].error_messages = {
             "required": u"Please tell us whether you are a part-time student.",
             "invalid": u"Your answer is not valid.",
@@ -90,6 +92,18 @@ class ExtraInfoForm(ModelForm):
             "required": u"Please let us know how often you procrastinate.",
             "invalid": u"Your answer is not valid.",
         }
+
+        # self.fields["more_time_on_course"].required = False
+        # self.fields["more_time_on_course"].error_messages = {
+        #    "required": u"Please let us know how: How many out of 100 students will spend more time on the IITP course than you do?",
+        #    "invalid": u"Your answer is not valid.",
+        # }
+
+        # self.fields["course_how_many_students_studying"].required = False
+        # self.fields["course_how_many_students_studying"].error_messages = {
+        #    "required": u"Please let us know how: How many out of 100 students will spend more time studying this semester than you do?",
+        #    "invalid": u"Your answer is not valid.",
+        # }
 
         self.fields["list_zp1"].required = False
         self.fields["list_zp1"].error_messages = {
@@ -476,3 +490,6 @@ class ExtraInfoForm(ModelForm):
             'more_time_on_course': forms.TextInput(attrs={'size': 10}),
             'course_how_many_students_studying': forms.TextInput(attrs={'size': 10}),
         }
+
+        # labels = {'nationality': _("Nationality"),'age': _("Age"),'phone_number': _("Phone number"),}
+        # help_text = {'nationality': _("Please enter your Nationality"),'age': _("Please enter your Age"),'phone_number': _("Please enter your phone number"),}
