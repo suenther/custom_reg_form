@@ -13,10 +13,7 @@ class ExtraInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
 
-        self.fields["consent"].required = False
-        self.fields["consent"].initial = 1
-        self.fields["consent"].help_text = u"help_text"
-        self.fields["consent"].optional = u"optional"
+        self.fields["consent"].required = True
         self.fields["consent"].error_messages = {
             "required": u"required",
             "invalid": u"invalid",

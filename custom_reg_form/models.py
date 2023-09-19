@@ -262,9 +262,10 @@ class ExtraInfo(models.Model):
     """
     user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.SET_NULL)
 
-    consent = models.BooleanField(
+    consent = models.CharField(
         verbose_name="I agree that data of my learning behavior may be used to improve the EESYS courses.",
-        default=1,
+        choices=NO_YES,
+        max_length=15
     )
     study_programme = models.CharField(verbose_name="Please enter your study program.", choices=STUDY_PROGRAMM_CHOICES, max_length=255)
 
