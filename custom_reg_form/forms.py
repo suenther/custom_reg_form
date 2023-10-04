@@ -230,7 +230,7 @@ class ExtraInfoForm(ModelForm):
             "invalid": u"Likert answer is not valid.",
         }
         self.fields["scale_mnmgt_int11"].error_messages = {
-            "required": u"Please answer the question: I often feel so lazy or bored when I study for this course that I quit before I finish what I planned to do.",
+            "required": u"Please answer the question: When course work is difficult, I give up or only study the easy parts.",
             "invalid": u"Likert answer is not valid.",
         }
         self.fields["scale_mnmgt_int12"].error_messages = {
